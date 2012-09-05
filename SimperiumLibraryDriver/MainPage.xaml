@@ -1,0 +1,142 @@
+﻿<phone:PhoneApplicationPage 
+    x:Class="SimperiumLibraryDriver.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="696"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock x:Name="ApplicationTitle" Text="Simperium API Driver" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock x:Name="PageTitle" Text="Bucket" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+        </StackPanel>
+
+        <!--ContentPanel - place additional content here-->
+        <ScrollViewer x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+                <StackPanel Orientation="Vertical">
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                
+                <TextBlock Margin="2,2,2,2" Grid.Row="0" Grid.Column="0"  Text="bucket name" VerticalAlignment="Center"/>
+                <TextBox Margin="2,2,2,2" Grid.Row="0" Grid.Column="1" x:Name="BucketName_Box"/>
+
+                <TextBlock Margin="2,2,2,2" Grid.Row="1" Grid.Column="0"  Text="object id" VerticalAlignment="Center"/>
+                <TextBox Margin="2,2,2,2" Grid.Row="1" Grid.Column="1" x:Name="ObjectId_Box"/>
+            </Grid>
+
+                    
+                <Grid >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Margin="2,2,2,2" Grid.Row="0" Grid.Column="0"  Text="k/v 1" VerticalAlignment="Center"/>
+                    <TextBox Margin="2,2,2,2" Grid.Row="0" Grid.Column="1" x:Name="Key1_Box"/>
+                    <TextBlock Margin="2,2,2,2" Grid.Row="0" Grid.Column="2"  Text=":" VerticalAlignment="Center"/>
+                    <TextBox Margin="2,2,2,2" Grid.Row="0" Grid.Column="3" x:Name="Value1_Box"/>
+
+                    <TextBlock Margin="2,2,2,2" Grid.Row="1" Grid.Column="0"  Text="k/v 2" VerticalAlignment="Center"/>
+                    <TextBox Margin="2,2,2,2" Grid.Row="1" Grid.Column="1" x:Name="Key2_Box"/>
+                    <TextBlock Margin="2,2,2,2" Grid.Row="1" Grid.Column="2"  Text=":" VerticalAlignment="Center"/>
+                    <TextBox Margin="2,2,2,2" Grid.Row="1" Grid.Column="3" x:Name="Value2_Box"/>
+
+                    <TextBlock Margin="2,2,2,2" Grid.Row="2" Grid.Column="0"  Text="k/v 3" VerticalAlignment="Center"/>
+                    <TextBox Margin="2,2,2,2" Grid.Row="2" Grid.Column="1" x:Name="Key3_Box"/>
+                    <TextBlock Margin="2,2,2,2" Grid.Row="2" Grid.Column="2"  Text=":" VerticalAlignment="Center"/>
+                    <TextBox Margin="2,2,2,2" Grid.Row="2" Grid.Column="3" x:Name="Value3_Box"/>
+
+                    <TextBlock Margin="2,2,2,2" Grid.Row="3" Grid.Column="0"  Text="k/v 4" VerticalAlignment="Center"/>
+                    <TextBox Margin="2,2,2,2" Grid.Row="3" Grid.Column="1" x:Name="Key4_Box"/>
+                    <TextBlock Margin="2,2,2,2" Grid.Row="3" Grid.Column="2"  Text=":" VerticalAlignment="Center"/>
+                    <TextBox Margin="2,2,2,2" Grid.Row="3" Grid.Column="3" x:Name="Value4_Box"/>
+
+
+                </Grid>
+               
+                    
+                <StackPanel Orientation="Horizontal">
+                    <Button  Content="Get" MinWidth="150" Click="GetButton_Click" />
+                    <Button  Content="Set" MinWidth="150" Click="SetButton_Click" />
+                    <Button  Content="Delete" MinWidth="150" Click="DeleteButton_Click" />
+                </StackPanel>
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Margin="2,2,2,2" Grid.Row="0" Grid.Column="0"  Text="version" VerticalAlignment="Center"/>
+                    <TextBox Margin="2,2,2,2" InputScope="Number" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" x:Name="Version_Box"/>
+
+                    <CheckBox x:Name="Replace_CheckBox" Content="replace" Grid.Row="1" Grid.Column="1"/>
+                    <CheckBox x:Name="Response_CheckBox" Content="response" Grid.Row="1" Grid.Column="2"/>
+                    
+                    <TextBlock Margin="2,2,2,2" Grid.Row="2" Grid.Column="0"  Text="clientid" VerticalAlignment="Center"/>
+                    <TextBox Margin="2,2,2,2" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" x:Name="ClientId_Box"/>
+
+                    <TextBlock Margin="2,2,2,2" Grid.Row="3" Grid.Column="0"  Text="ccid" VerticalAlignment="Center"/>
+                    <TextBox Margin="2,2,2,2" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" x:Name="CCID_Box"/>
+                </Grid>
+
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+ 
+    <!--Sample code showing usage of ApplicationBar-->
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
+            <!-- <shell:ApplicationBarIconButton IconUri="/Images/appbar_button1.png" Text="Button 1"/>
+            <shell:ApplicationBarIconButton IconUri="/Images/appbar_button2.png" Text="Button 2"/>
+            -->
+            <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem Text="Log" Click="LogMenuItem_Click"/>
+                <shell:ApplicationBarMenuItem Text="Account" Click="AccountMenuItem_Click"/>
+                <shell:ApplicationBarMenuItem Text="User/Auth" Click="UserAuthMenuItem_Click"/>
+            </shell:ApplicationBar.MenuItems>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+
+</phone:PhoneApplicationPage>
