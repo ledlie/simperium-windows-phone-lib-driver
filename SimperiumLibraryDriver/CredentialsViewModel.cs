@@ -13,18 +13,21 @@ using System.IO.IsolatedStorage;
 
 namespace SimperiumLibraryDriver
 {
-    public class UserAuthViewModel : INotifyPropertyChanged
+    public class CredentialsViewModel : INotifyPropertyChanged
     {
         private string username;
         private string password;
+        private string access_token;
 
         const string SETTINGS_USERNAME = "username";
         const string SETTINGS_PASSWORD = "password";
+        const string SETTINGS_ACCESS_TOKEN = "access_token";
 
         IsolatedStorageSettings isoSettings = IsolatedStorageSettings.ApplicationSettings;
 
-        public UserAuthViewModel()
+        public CredentialsViewModel()
         {
+            
         }
 
         public string Username
@@ -65,6 +68,28 @@ namespace SimperiumLibraryDriver
                     isoSettings[SETTINGS_PASSWORD] = password;
                     isoSettings.Save();
                     NotifyPropertyChanged("Password");
+                }
+            }
+        }
+
+        public string AccessToken
+        {
+            get
+            {
+                if (String.IsNullOrWhiteSpace(access_token))
+                    if (isoSettings.Contains(SETTINGS_ACCESS_TOKEN))
+                        access_token = isoSettings[SETTINGS_ACCESS_TOKEN] as string;
+                return access_token;
+            }
+
+            set
+            {
+                if (value != access_token)
+                {
+                    access_token = value;
+                    isoSettings[SETTINGS_ACCESS_TOKEN] = access_token;
+                    isoSettings.Save();
+                    NotifyPropertyChanged("AccessToken");
                 }
             }
         }

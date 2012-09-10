@@ -8,8 +8,8 @@
     <!--Application Resources-->
     <Application.Resources>
         <local:LogViewModel xmlns:local="clr-namespace:SimperiumLibraryDriver" x:Key="LogVM" />
-        <local:AccountViewModel xmlns:local="clr-namespace:SimperiumLibraryDriver" x:Key="AccountVM" />
-        <local:UserAuthViewModel xmlns:local="clr-namespace:SimperiumLibraryDriver" x:Key="UserAuthVM" />
+        <!-- <local:AccountViewModel xmlns:local="clr-namespace:SimperiumLibraryDriver" x:Key="AccountVM" /> -->
+        <!-- <local:CredentialsViewModel xmlns:local="clr-namespace:SimperiumLibraryDriver" x:Key="CredentialsVM" /> -->
     </Application.Resources>
 
     <Application.ApplicationLifetimeObjects>

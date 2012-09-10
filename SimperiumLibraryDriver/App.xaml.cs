@@ -34,25 +34,66 @@ namespace SimperiumLibraryDriver
             }
         }
 
+        private static Simperium.Settings settings;
+        public static Simperium.Settings Settings
+        {
+            get
+            {
+                if (settings == null)
+                {
+                    settings = new Simperium.Settings();
+                    settings.USER_AGENT = "WPLib/0.1";
+                }
+                return settings;
+            }
+        }
+
+        private static Simperium.UserAuth userAuth;
+        public static Simperium.UserAuth UserAuth
+        {
+            get
+            {
+                if (userAuth == null)
+                    userAuth = new Simperium.UserAuth(Settings);
+                return userAuth;
+            }
+        }
+
+        private static Simperium.Bucket bucket;
+        public static Simperium.Bucket Bucket
+        {
+            get
+            {
+                return bucket;
+            }
+            set
+            {
+                bucket = value;
+            }
+        }
+
+        
         private static AccountViewModel account;
         public static AccountViewModel Account
         {
             get
             {
                 if (account == null)
-                    account = Application.Current.Resources["AccountVM"] as AccountViewModel;
+                    account = new AccountViewModel(settings);
                 return account;
             }
         }
+        
 
-        private static UserAuthViewModel userAuth;
-        public static UserAuthViewModel UserAuth
+        private static CredentialsViewModel credentials;
+        public static CredentialsViewModel Credentials
         {
             get
             {
-                if (userAuth == null)
-                    userAuth = Application.Current.Resources["UserAuthVM"] as UserAuthViewModel;
-                return userAuth;
+                if (credentials == null)
+                    credentials = new CredentialsViewModel();
+                    //credentials = Application.Current.Resources["CredentialsVM"] as CredentialsViewModel;
+                return credentials;
             }
         }
 

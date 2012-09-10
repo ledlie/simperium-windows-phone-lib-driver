@@ -28,7 +28,7 @@
 
         <!--ContentPanel - place additional content here-->
         <ScrollViewer x:Name="ContentScroller" Grid.Row="1" Margin="12,0,12,0">
-            <TextBlock  x:Name="LogText" Text="{Binding Path=Log}" DataContext="{Binding Source={StaticResource LogVM}}" />
+            <TextBlock TextWrapping="Wrap" x:Name="LogText" Text="{Binding Path=Log}" DataContext="{Binding Source={StaticResource LogVM}}" />
         </ScrollViewer>
         
     </Grid>

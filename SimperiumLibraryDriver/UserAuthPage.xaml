@@ -18,6 +18,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
@@ -28,7 +29,7 @@
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
-        <ScrollViewer DataContext="{Binding Source={StaticResource UserAuthVM}}" x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+        <ScrollViewer x:Name="ContentPanel" DataContext="{Binding}" Grid.Row="1" Margin="12,0,12,0">
             <StackPanel Orientation="Vertical">
                 <Border BorderThickness="1,1,1,1">
                     <StackPanel Orientation="Vertical">
@@ -94,9 +95,10 @@
             </StackPanel>
         </ScrollViewer>
 
+        <TextBlock Grid.Row="2" Text="Result of last command:" Margin="12,30,12,0"/>
 
-        <ScrollViewer x:Name="LogPanel" Grid.Row="2" Margin="12,20,12,0">
-            <TextBlock Text="[Result of last command]"/>
+        <ScrollViewer x:Name="LogPanel" Grid.Row="3" Margin="12,12,12,0">
+            <TextBlock TextWrapping="Wrap" x:Name="LogText"/>
         </ScrollViewer>
 
         <!--

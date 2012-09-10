@@ -28,7 +28,7 @@
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
-        <StackPanel Orientation="Vertical" DataContext="{Binding Source={StaticResource AccountVM}}" x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+        <StackPanel Orientation="Vertical" x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
             <TextBlock Margin="10,2,2,2" Text="app id"/>
             <TextBox  Margin="2,2,2,2" Text="{Binding Path=AppId,Mode=TwoWay}"/>
 

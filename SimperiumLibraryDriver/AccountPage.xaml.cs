@@ -18,6 +18,7 @@ namespace SimperiumLibraryDriver
         public AccountPage()
         {
             InitializeComponent();
+            ContentPanel.DataContext = App.Account;
         }
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)

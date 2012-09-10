@@ -20,13 +20,13 @@ namespace SimperiumLibraryDriver
         const string SETTINGS_API_KEY = "api_key";
         const string SETTINGS_ADMIN_KEY = "admin_key";
 
-        IsolatedStorageSettings isoSettings = IsolatedStorageSettings.ApplicationSettings;
+        IsolatedStorageSettings isoSettings;
         Simperium.Settings settings;
 
-        public AccountViewModel()
+        public AccountViewModel(Simperium.Settings _settings)
         {
-            settings = new Simperium.Settings();
-            settings.USER_AGENT = "WPLib/0.1";
+            isoSettings = IsolatedStorageSettings.ApplicationSettings;
+            settings = _settings;
             if (isoSettings.Contains(SETTINGS_APP_ID))
                 settings.APP_ID = (isoSettings[SETTINGS_APP_ID] as string);
         }
@@ -52,55 +52,49 @@ namespace SimperiumLibraryDriver
         {
             get
             {
-                if (String.IsNullOrWhiteSpace(api_key))
-                    if (isoSettings.Contains(SETTINGS_ADMIN_KEY))
-                        api_key = isoSettings[SETTINGS_ADMIN_KEY] as string;
-                return api_key;
+                return settings.API_KEY;
             }
 
             set
             {
-                if (value != api_key)
+                if (value != settings.API_KEY)
                 {
-                    api_key = value;
+                    settings.API_KEY = value;
                     NotifyPropertyChanged("ApiKey");
                 }
             }
         }
 
-        /*
         public string AdminKey
         {
             get
             {
-                if (String.IsNullOrWhiteSpace(admin_key))
-                    if (isoSettings.Contains(SETTINGS_ADMIN_KEY))
-                        admin_key = isoSettings[SETTINGS_ADMIN_KEY] as string;
-                return admin_key;
+                return settings.ADMIN_KEY;
             }
 
             set
             {
-                if (value != admin_key)
+                if (value != settings.ADMIN_KEY)
                 {
-                    admin_key = value;
+                    settings.ADMIN_KEY = value;
                     NotifyPropertyChanged("AdminKey");
                 }
             }
         }
 
-         */
         internal void Save()
         {
-            isoSettings[SETTINGS_APP_ID] = app_id;
-            isoSettings[SETTINGS_API_KEY] = api_key;
-            isoSettings[SETTINGS_ADMIN_KEY] = admin_key;
+            isoSettings[SETTINGS_APP_ID] = settings.APP_ID;
+            isoSettings[SETTINGS_API_KEY] = settings.API_KEY;
+            isoSettings[SETTINGS_ADMIN_KEY] = settings.ADMIN_KEY;
             isoSettings.Save();
         }
 
         internal void Reset()
         {
             AppId = "";
+            ApiKey = "";
+            AdminKey = "";
             Save();
         }
 
